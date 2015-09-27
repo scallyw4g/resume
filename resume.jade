@@ -1,0 +1,132 @@
+//- To compile on save add the following snippet to your vimrc
+//- autocmd BufWritePost resume.jade ! node render.js
+
+link(href='/usr/share/fonts/adobe-source-serif-pro/SourceSerifPro-Light.otf' rel='stylesheet' type='text/css')
+link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet' type='text/css')
+
+style
+	include resume.css
+- var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.350.5117 - github.com/jjbandit</span><hr>"
+
+body
+
+	.header !{contactInfo}
+	#cert
+		h2 Languages
+		ul
+			li
+				h3 Excellent
+				.skill Shell
+				.skill Javascript jQuery
+				.skill No-SQL
+
+			li
+				h3 Good
+				.skill Ruby
+				.skill PHP
+				.skill SQL
+				.skill Java
+
+			li
+				h3 Notion
+				.skill C#
+				.skill C++
+				.skill Python
+
+		h2 Tools
+		ul
+			li
+				h3 Excellent
+				.skill Git
+				.skill Meteor
+				.skill CSS Pre-processors
+				.skill Templating Languages
+
+			li
+				h3 Good
+				.skill Ruby on Rails
+				.skill Node
+				.skill Laravel
+
+			li
+				h3 Notion
+				.skill Cucumber
+				.skill Mocha
+				.skill Chai
+
+	#letter
+		p Hello,
+		p.
+			My name is Jesse Hughes.  I am applying for the position of #{job_title}
+			in Victoria as advertised at #{application_url} .
+		p.
+			Let me introduce myself properly; I'm a young and energetic developer with a
+			passion for learning new frameworks and technologies.  I also enjoy
+			building (and fixing!) things, and am rewarded by gaining a deep
+			understanding of how they work.
+
+		p Let me show you that I am a great fit for the position.
+
+		h3 I have a robust knowledge of MVC Frameworks.
+		hr
+		p.
+			I have worked on significant projects with Ruby-on-Rails, Meteor, Node and
+			Laravel.  I have a good understanding of the core libraries of these
+			frameworks and common MVC patterns.
+
+		h3 I have a solid grasp of Databases.
+		hr
+		p.
+			While zsh is my primary residence, the database shell is like a second home to
+			me.  I can write SQL and No-SQL queries as well as setup and administer live DBs.
+
+		h3 I control the Source.
+		hr
+		p.
+			I think it goes without saying that Git is one of the most important tools
+			a developer uses.  I have a good working knowledge of Git and look forward to
+			learning about its more advanced features in the future!
+
+		h3 I own the Stack.
+		hr
+		p.
+			I am enthusiasticly learning as much as possible about Linux tooling.  I can
+			deploy apps with Capistrano and Meteor-up, build servers with Puppet and I
+			develop locally with Vagrant.  Running Arch Linux encourages me to
+			seek out facets of Linux that I have no understanding of.  For example,
+			I am currently writing a terminal emulator in my spare time, which so far
+			has been an amazing experience.
+
+	#project
+		h2 Recent Projects
+		hr
+		ul
+			li
+				h3 Yipida - Full-Stack Engineer
+				p.
+					At Yipida I was hired as a Frontend Engineer, however I quickly became
+					involved in development at all levels of the stack.  We were working with a
+					completely dead framework, so I had to get creative several times.  I
+					even built my own templating system - cool!
+					The app was built in PHP with a MySQL backend.
+
+			li
+				h3 Fishie - Consulting Project
+				p.
+					Fishie is a project I undertook for Panorama Recreation Centre.  The
+					management team needed a tool to build swim instructors' schedules quickly
+					and easily.  The tool also needed to integrate with their proprietary
+					client registration software, which provided the ugliest csv output I
+					have ever seen.  I used Meteor for this and loved every second of it!
+
+			li
+				h3 Iris - Consulting Project
+				p.
+					Iris needed a new face for their business and a more robust e-commerce
+					platform.  I built them a single page application with a Spree (RoR)
+					backend for sales.
+
+	.footer !{contactInfo}
+	p.
+		If you're interested in learning more about me, or would like to talk in
+		person, drop me a line!
