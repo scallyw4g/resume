@@ -3,6 +3,7 @@
 var jade = require('jade')
   , fs = require('fs')
   , pdf = require('html-pdf')
+  , moment = require('moment')
   , resume;
 
 var company,
@@ -24,11 +25,13 @@ var templateArgs = {
     }
 
 
+var date = moment().format('YY-MM-Do');
+
 html = jade.renderFile('resume.jade', templateArgs );
 
 fs.writeFile('./resume.html', html);
 
-pdf.create(html).toFile('./outgoing/' + company + '/Jesse_Hughes_Resume.pdf', function(err, res){
+pdf.create(html).toFile('./outgoing/' + date + '/' + company + '/Jesse_Hughes_Resume.pdf', function(err, res){
   console.log('Written to ' + res.filename);
 });
 
