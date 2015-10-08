@@ -6,7 +6,13 @@ link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet
 
 style
   include resume.css
-- var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.350.5117 - github.com/jjbandit</span><hr>"
+
+- location = location.toLowerCase()
+
+if location === 'remote'
+  - var contactInfo = "<h1>Jesse Hughes</h1> - Victoria BC, Canada - <span>jesse.hughes.it@gmail.com - github.com/jjbandit</span><hr>"
+else
+  - var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.350.5117 - github.com/jjbandit</span><hr>"
 
 body
 
@@ -16,15 +22,14 @@ body
     ul
       li
         h3 Excellent
-        .skill Shell
         .skill Javascript ES6
+        .skill Bash && Zsh
 
       li
         h3 Good
-        .skill Ruby
         .skill PHP
+        .skill Ruby
         .skill SQL
-        .skill MongoDB
         .skill Java
 
       li
@@ -39,15 +44,17 @@ body
         h3 Excellent
         .skill Git
         .skill jQuery
-        .skill Meteor
         .skill CSS Pre-processors
         .skill Templating Languages
 
       li
         h3 Good
-        .skill Ruby on Rails
-        .skill Node
+        .skill Nginx
         .skill Laravel
+        .skill Node
+        .skill Meteor
+        .skill Ruby on Rails
+        .skill MongoDB
 
       li
         h3 Notion
@@ -62,8 +69,6 @@ body
 
   #letter
     p Hello,
-
-    - location = location.toLowerCase()
 
     if location === "remote"
       p.
@@ -100,7 +105,7 @@ body
     p.
       I think it goes without saying that a VCS is one of the most important tools
       a developer uses.  I have a good working knowledge of Git and always look
-      forward to leanring more about this unbelievable tool.
+      forward to learning more about this unbelievable tool.
 
     h3 I own the Stack.
     p.
@@ -130,8 +135,8 @@ body
           Fishie is a project I undertook for Panorama Recreation Centre.  The
           management team needed a tool to build swim instructors' schedules quickly
           and easily.  The tool also needed to integrate with their proprietary
-          client registration software, which provided the ugliest csv output I
-          have ever seen.  I used Meteor for this and loved every second of it!
+          client registration software.  I used Meteor for this and loved every
+          second of it!
 
       li
         h3 Iris - Consulting Project - June - July
