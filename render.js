@@ -9,7 +9,17 @@ var args = process.argv.slice(2);
 
 var company,
     url,
-    job;
+    job,
+    location = 'Victoria';
+
+var templateArgs = {
+
+    job_title: job,
+    application_url: url,
+    company_name: company,
+    location: location
+
+    }
 
 args.forEach(function(val, index, array) {
 
@@ -24,6 +34,10 @@ args.forEach(function(val, index, array) {
   if ( val === 'job' ) {
     job = args[index + 1];
   }
+
+  if ( val === 'locaton' ) {
+    location = args[index + 1];
+  }
 });
 
 if ( !job || !url || !company ){
@@ -31,12 +45,7 @@ if ( !job || !url || !company ){
   process.exit(1);
 }
 
-html = jade.renderFile('resume.jade',
-    {
-      job_title: job,
-      application_url: url,
-      company_name: company
-    });
+html = jade.renderFile('resume.jade', templateArgs );
 
 fs.writeFile('./resume.html', html);
 
