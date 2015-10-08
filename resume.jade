@@ -62,9 +62,21 @@ body
 
   #letter
     p Hello,
-    p.
-      My name is Jesse Hughes.  I am applying for the position of #{job_title}
-      in #{location} as advertised at #{application_url} .
+
+    - location = location.toLowerCase()
+
+    if location === "remote"
+      p.
+        My name is Jesse Hughes.
+        I am applying for the position of Remote #{job_title}
+        as advertised at #{application_url} .
+
+    else
+      p.
+        My name is Jesse Hughes.
+        I am applying for the position of #{job_title}
+        in #{location} as advertised at #{application_url} .
+
     p.
       Let me introduce myself properly; I'm a young and energetic developer with a
       passion for learning new frameworks and technologies.  I also enjoy
@@ -104,7 +116,7 @@ body
     hr
     ul
       li
-        h3 Yipida - Full-Stack Engineer - April to Current
+        h3 Yipida - Full-Stack Engineer - May to Current
         p.
           At Yipida I was hired as a Frontend Engineer, however I quickly became
           involved in development at all levels of the stack.  We were working with a
@@ -122,7 +134,7 @@ body
           have ever seen.  I used Meteor for this and loved every second of it!
 
       li
-        h3 Iris - Consulting Project - March - April
+        h3 Iris - Consulting Project - June - July
         p.
           Iris needed a new face for their business and a more robust e-commerce
           platform.  I built them a single page application with a Spree (RoR)
