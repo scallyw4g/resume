@@ -7,9 +7,9 @@ link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet
 style
   include resume.css
 
-- location = location.toLowerCase()
+- lcLocation = location.toLowerCase()
 
-if location === 'remote'
+if lcLocation === 'remote'
   - var contactInfo = "<h1>Jesse Hughes</h1> - Victoria BC, Canada - <span>jesse.hughes.it@gmail.com - github.com/jjbandit</span><hr>"
 else
   - var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.350.5117 - github.com/jjbandit</span><hr>"
@@ -70,7 +70,7 @@ body
   #letter
     p Hello,
 
-    if location === "remote"
+    if lcLocation === "remote"
       p.
         My name is Jesse Hughes.
         I am applying for the position of Remote #{job_title}
