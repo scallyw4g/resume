@@ -6,60 +6,101 @@ var jade = require('jade')
   , moment = require('moment')
   , resume;
 
-var company,
-    url,
-    job,
-    location = 'Victoria';
+// Locals for rendering
+var company
+  , url
+  , position
+  , location = 'Victoria'
+  , readline = require('readline-sync');
 
-var args = process.argv.slice(2);
+var args = readArgs();
 
-parseArgs(args);
+if ( args.errors.length > 0 ) {
 
-var templateArgs = {
+  writeErrors(args.errors);
 
-      job_title: job,
-      application_url: url,
-      company_name: company,
-      location: location
-
-    }
-
-
-var date = moment().format('YY-MM-Do');
-
-html = jade.renderFile('resume.jade', templateArgs );
-
-fs.writeFile('./resume.html', html);
-
-pdf.create(html).toFile('./outgoing/' + date + '/' + company + '/Jesse_Hughes_Resume.pdf', function(err, res){
-  console.log('Written to ' + res.filename);
-});
+} else {
+  render(args);
+}
 
 
-function parseArgs (args) {
 
-  args.forEach(function(val, index, array) {
 
-    if ( val === 'company' ) {
-      company = args[index + 1];
-    }
 
-    if ( val === 'url' ) {
-      url = args[index + 1];
-    }
 
-    if ( val === 'job' ) {
-      job = args[index + 1];
-    }
 
-    if ( val === 'location' ) {
-      location = args[index + 1];
-    }
+
+
+function render (args) {
+
+  console.log('\n -- Rendering');
+
+  var date = moment().format('YY-MM-Do');
+
+  html = jade.renderFile(args.template, args );
+
+  fs.writeFile('./resume.html', html);
+
+  pdf.create(html).toFile('./outgoing/' + date + '/' + args.company_name + '/Jesse_Hughes_Resume.pdf', function(err, res){
+    console.log('Written to ' + res.filename);
   });
 
-  if ( !job || !url || !company ){
-    console.log('Required arguments: job url company');
-    process.exit(1);
+}
+
+function readArgs () {
+
+  var
+    args = {}
+  , errors = [];
+
+  args.position = readline.question("What is the position title? ");
+
+  args.company_name = readline.question("What company is hiring this position? ");
+
+  args.application_url = readline.question("What url is the position advertised at? ");
+
+  args.location = readline.question("Where is this position located? ( Default: Victoria ) ");
+
+  args.template = readline.question("What template should I render? ( Default: resume.jade ) ");
+
+  args = setDefaultValues(args);
+
+  args = checkNullArgs(args);
+
+  return args;
+}
+
+function setDefaultValues(args) {
+  if (args.template.length === 0 ) {
+    args.template = "resume.jade";
   }
 
+  if (args.location.length === 0 ) {
+    args.location = "Victoria";
+  }
+
+  return args;
+}
+
+function checkNullArgs (args) {
+
+  args.errors = [];
+
+  // Validate we received something for each input
+  for (var val in args) {
+    if ( ! args[val] ) {
+      args.errors.push("Required value: " + val) ;
+    }
+  };
+
+  return args;
+}
+
+function writeErrors(errors) {
+  console.log('\n -- Errors');
+  console.log(errors);
+
+  for (var i=0; i < errors.lenght; i++) {
+    console.log(errors[i]);
+  }
 }
