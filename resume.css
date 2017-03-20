@@ -1,17 +1,33 @@
 body {
   max-width: 960px;
   font-size: 0.8em;
-  font-family: 'Inconsolata for Powerline';
 }
 
 #letter {
   float: left;
-  width: 73%;
+}
+
+#cert, #edu {
+  padding-top: 10px;
+  float: left;
 }
 
 #cert {
-  float: right;
+  width: 75%;
+}
+#edu {
   width: 25%;
+}
+
+#cert ul li,
+#edu ul li{
+  width: 33%;
+  float: left;
+}
+
+.skill {
+  white-space: pre;
+  padding: 0 10px;
 }
 
 #letter,
@@ -20,12 +36,13 @@ body {
   display: inline-block;
 }
 
-.skill {
-  padding: 0 10px;
-}
-
 li {
   margin: 10px 0;
+}
+
+#project li {
+  font-family: "Source Serif Pro";
+  font-size: 14px;
 }
 
 ul {
@@ -50,9 +67,7 @@ h2, h3, h4 {
 
 h1 {
   margin: 0;
-  padding: 5px 0;
 }
-
 h2 {
   margin: 0;
 }
