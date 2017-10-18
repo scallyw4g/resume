@@ -4,23 +4,15 @@ var jade = require('jade')
   , fs = require('fs')
   , pdf = require('html-pdf')
   , moment = require('moment')
+  , readline = require('readline-sync')
   , resume;
-
-// Locals for rendering
-var company
-  , url
-  , position
-  , location = 'Victoria'
-  , readline = require('readline-sync');
-
-var args = {};
 
 var commandLineArgs = process.argv.slice(2);
 
-if ( commandLineArgs.indexOf("--sample") > -1 ) {
+if ( commandLineArgs.indexOf("--sample") !== -1 ) {
 
-  args = {
-    location,
+  let args = {
+    location: "Sample Location",
     position: "SAMPLE",
     application_url: "http://www.someGreatCompany.com",
     company_name: "Sample",
@@ -31,32 +23,44 @@ if ( commandLineArgs.indexOf("--sample") > -1 ) {
 
 } else if ( commandLineArgs.indexOf('--args') === 0 ) {
 
-  args = fs.readFile(commandLineArgs[1], (err, data) => {
-    if (err) throw err ;
+  let args = fs.readFile(commandLineArgs[1], (err, data) => {
+    if (err) throw err;
     render( JSON.parse(data.toString()) );
   });
 
-} else {
-  main(args);
+} else if ( commandLineArgs.indexOf('--help') !== -1 ||
+            commandLineArgs.indexOf('-h') !== -1 ) {
 
+  console.log("");
+  console.log(" Usage: render.js [--sample] [--args saved-arguments.json] [--help|-h]");
+  console.log("");
+  console.log(" --sample                    | Render resume with sample data");
+  console.log(" --args saved-arguments.json | Render resume with arguments saved to a file");
+  console.log(" --help    -h                | Print help text and exit");
+  console.log("");
+
+} else {
+  main();
 }
 
 
 
-function main(args) {
+function main() {
 
-  args = readArgs()
+  let args = readArgsFromStdIn();
 
   // If we encounter undefined or null values in our arguments
   if ( args.errors.length > 0 ) {
-    writeErrors(args.errors);
+    dumpErrorsToStdOut(args.errors);
     main(args);
 
   // All good, render that ****!
   } else {
     render(args);
-    // Write this here so that it doesn't get overwritten by sample
-    fs.writeFile(`latest_args.json`, JSON.stringify(args, null, 2) );
+    // Write latest_args outside of render so that they don't get overwritten when rendering a sample
+    fs.writeFile(`latest_args.json`,
+                 JSON.stringify(args, null, 2),
+                 () => console.log("latest_args.json written") );
   }
 }
 
@@ -73,35 +77,39 @@ function render (args) {
 
   // Render the jade template as html
   html = jade.renderFile(args.template, args);
-  fs.writeFile(`resume.html`, html );
+  fs.writeFile(`resume.html`,
+               html,
+               () => console.log("Writing resume.html\n") );
 
   // Convert HTML to PDF and write it to the FS
   pdf.create(html).toFile( `${filePath}/Jesse_Hughes_Resume.pdf`, (err, res) => {
-    console.log(`Written to ${res.filename}\n`);
+    fs.writeFile(`${filePath}/args.json`,
+                 JSON.stringify(args, null, 2),
+                 () => console.log(`PDF written to ${res.filename}\n`) )
 
-    // Write out args
-    fs.writeFile(`${filePath}/args.json`, JSON.stringify(args, null, 2) );
   });
 }
 
 /*
  *  Interactively read arguments from stdin.
  */
-function readArgs () {
+function readArgsFromStdIn () {
 
-  args.position ? null : args.position = readline.question("What is the position title? ");
+  let args = {};
 
-  args.company_name ? null : args.company_name = readline.question("What company is hiring this position? ");
+  args.position = readline.question("What is the position title? ");
 
-  args.application_url ? null : args.application_url = readline.question("What url is the position advertised at? ");
+  args.company_name = readline.question("What company is hiring this position? ");
 
-  args.location ? null : args.location = readline.question("Where is this position located? ( Default: Victoria ) ");
+  args.application_url = readline.question("What url is the position advertised at? ");
 
-  args.template ? null : args.template = readline.question("What template should I render? ( Default: resume.jade ) ");
+  args.location = readline.question("Where is this position located? ( Default: Victoria ) ");
+
+  args.template = readline.question("What template should I render? ( Default: resume.jade ) ");
 
   setDefaultValues(args);
 
-  checkNullArgs(args);
+  ValidateArgs(args);
 
   return args;
 }
@@ -123,7 +131,7 @@ function setDefaultValues(args) {
  *  Checks for arguments with falsy values.  Populates an `errors`
  *  property in the args object if it encounters any falsy values.
  */
-function checkNullArgs (args) {
+function ValidateArgs (args) {
 
   args.errors = [];
 
@@ -138,11 +146,8 @@ function checkNullArgs (args) {
 /*
  *  Dump errors array to stdout.
  */
-function writeErrors(errors) {
+function dumpErrorsToStdOut(errors) {
   console.log('\n -- Errors');
-
-  for (var i=0; i < errors.length; i++) {
-    console.log(errors[i]);
-  }
+  errors.forEach( e => console.log(e) );
   console.log('');
 }

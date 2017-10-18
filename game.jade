@@ -1,0 +1,138 @@
+//- To compile on save add the following snippet to your vimrc
+//- autocmd BufWritePost resume.jade ! node render.js
+
+link(href='/usr/share/fonts/adobe-source-serif-pro/SourceSerifPro-Light.otf' rel='stylesheet' type='text/css')
+link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet' type='text/css')
+
+style
+  include resume.css
+
+- lcLocation = location.toLowerCase()
+
+if lcLocation === 'remote'
+  - var contactInfo = "<h1>Jesse Hughes</h1> ( Victoria BC, Canada - <span>jesse.hughes.it@gmail.com - github.com/jjbandit</span>"
+else
+  - var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.922.4334 - github.com/jjbandit</span>"
+
+body
+
+  .header !{contactInfo}
+
+  #cert
+    h2 Skills
+    ul
+      li
+        h3 Use Daily
+        .skill C/C++
+        .skill Linux | Bash
+        .skill Git   | SVN
+        .skill React | Angular2
+        .skill Apache
+
+      li
+        h3 Active Learning
+        .skill OpenGL
+        .skill 3D Math
+        .skill SIMD
+        .skill gdb
+
+      li
+        h3 Previous Use
+        .skill AWS
+        .skill Nginx
+        .skill Ruby/Rails
+        .skill PHP
+        .skill SQL
+
+
+  #edu
+    h2 Education
+    ul
+      li
+        h3 Autodidactic
+        .skill Always Learning
+
+
+   #letter
+    p Hello,
+
+    if lcLocation === "remote"
+      p.
+        My name is Jesse Hughes.
+        I am applying for the position of Remote #{position}
+        as advertised at #{application_url} .
+
+    else
+      p.
+        My name is Jesse Hughes.
+        I am applying for the position of #{position}
+        in #{location}.
+
+    p.
+      I am a technology enthusiast with a thirst for knowledge.  I thrive on
+      learing intricate details of systems, both theoretical and implemented.
+      Building games has been a pass-time of mine from a young age; The first
+      game I ever made was an RPG with Play-Doh models at age six.
+
+
+    p.
+      My primary experience is in web development.  Years of developing web
+      applications has given me an excellent understanding of client-server
+      architectures.  I am proficient with interfaces that speak standard HTTP,
+      as well as any in-house socket interfaces that may be in use at
+      #{company_name}.
+
+    p.
+      Last year I became inspired to build a game engine by the great work of
+      Casey Muratori on Handmade Hero.  Writing an engine from scratch has
+      given me great confidance in my ability to visualize complex high level
+      concepts, then implement them in a sensible way. I have learned a great
+      deal about math, rendering and hardware architecture in the last year,
+      and look forward to becoming an expert in the future.
+
+  #project
+    h2 Recent Projects
+    hr
+    ul
+      li
+        h3 Project6 Design
+        p.
+
+
+
+
+      li
+        h3 Fresche - Windows/AS400 - November 2015 to Current
+        p.
+          Currently at Fresche I am rebuilding the company portal.  This
+          project involves a custom MVC backend in C++, and an Angular2
+          frontend.
+
+        p.
+          Fresche hired me initially to work on a Windows IDE called WebSmart.
+          Websmart targets new web developers on the IBM iSeries (formerly
+          AS/400) platform.  My major contributions to the project were a large
+          refactor of the tool to support Unicode, as well as a substantial
+          increase in test coverage.
+
+      li
+        h3 Yipida - Full-Stack - May to November 2015
+        p.
+          At Yipida I was hired as a Frontend Developer, however I quickly
+          became involved in development at all levels in the stack.  I built a
+          frontend templating system and refactored large swaths of the backend code
+          including user registration, media uploads and payment processing.
+
+      li
+        h3 Contract Consulting - 2013 - 2015
+        p.
+          While briefly attending Camosun College I built several Ruby on Rails
+          (Spree) eCommerce applications for local businesses.  I also did some
+          contract work for CRD which involved a timecard generation app and a
+          swim lesson roster generator.
+
+
+  .footer !{contactInfo}
+  p.
+    If you are interested in learning more about me please contact
+    me by phone or email at your earliest convenience.
