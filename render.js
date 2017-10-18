@@ -1,6 +1,6 @@
 #! /bin/node
 
-var jade = require('jade')
+var pug = require('pug')
   , fs = require('fs')
   , pdf = require('html-pdf')
   , moment = require('moment')
@@ -75,8 +75,8 @@ function render (args) {
   var date = moment().format('YY-MM-Do');
   var filePath = `./outgoing/${date}/${args.company_name}`;
 
-  // Render the jade template as html
-  html = jade.renderFile(args.template, args);
+  // Render the pug template as html
+  html = pug.renderFile(args.template, args);
   fs.writeFile(`resume.html`,
                html,
                () => console.log("Writing resume.html\n") );

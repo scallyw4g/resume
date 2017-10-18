@@ -65,29 +65,7 @@ body
     //     in #{location}.
 
   #project
-    h2 Recent Experience
-    ul
-      li
-        h3 Fresche - Windows/AS400 - November 2015 to Current
-        ul
-          li Rebuilding product integration portal - C++ backend, Angular2 Frontend
-          li Refactored large (300kloc) Windows IDE to support Unicode
-          li Increased test coverage of IDE by many times
-
-      li
-        h3 Contract Consulting - 2012 - Current
-        ul
-          li Twilio MMS/Voice subscription marketing service
-          li Several Rails eCommerce apps using Spree
-          li Timecard Generator app for Victoria CRD
-          li Swim Lesson roster generator for Victoria CRD
-
-      li
-        h3 Yipida - Full-Stack - May to November 2015
-        ul
-          li Full stack / Dev Ops
-          li Payment Processing with Stripe
-          li Built a custom PHP templating engine
+    include recent_experience.pug
 
   .footer !{contactInfo}
   p.
