@@ -10,64 +10,56 @@ style
 - lcLocation = location.toLowerCase()
 
 if lcLocation === 'remote'
-  - var contactInfo = "<h1>Jesse Hughes</h1> Victoria BC - <span>jesse.hughes.it@gmail.com - github.com/jjbandit</span>"
+  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    Victoria BC    github.com/jjbandit</span> </div>"
 else
-  - var contactInfo = "<h1>Jesse Hughes</h1> - <span>jesse.hughes.it@gmail.com - 778.922.4334 - github.com/jjbandit</span>"
+  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    github.com/jjbandit    http://bare.software</span> </div>"
 
 body
 
+  h1.header Jesse Hughes
   .header !{contactInfo}
 
-  #cert
-    h2 Skills
-    ul
-      li
-        h3 5+ Years
-        .skill git
-        .skill Linux
-        .skill Bash
-        .skill Javascript/jQuery
-        .skill Ruby/Rails
+  div
+    #cert
+      h2 Skills
+      hr
+      ul
+        li
+          h3 7+ Years
+          .skill git
+          .skill Bash
+          .skill Javascript
+          .skill Linux
 
-      li
-        h3 3+ Years
-        .skill AWS/Apache/Nginx
-        .skill Node
-        .skill React/Angular
-        .skill PHP
-        .skill SQL
+        li
+          h3 5+ Years
+          .skill AWS
+          .skill Apache/Nginx
+          .skill Node/React
+          .skill PHP
+          .skill SQL
 
-      li
-        h3 1+ Year
-        .skill Visual Studio
-        .skill gdb
-        .skill C/C++
-        .skill OpenGL
-        .skill SIMD
+        li
+          h3 3+ Years
+          .skill C/C++
+          .skill OpenGL
+          .skill SIMD
+          .skill Angular2
+          .skill Ruby on Rails
 
-  #edu
-    h2 Education
-    ul
-      li
-        h3 Autodidactic
-        .skill Always Learning
-
-    // if lcLocation === "remote"
-    //   p.
-    //     My name is Jesse Hughes.
-    //     I am applying for the position of Remote #{position}
-    //     as advertised at #{application_url} .
-
-    // else
-    //   p.
-    //     My name is Jesse Hughes.
-    //     I am applying for the position of #{position}
-    //     in #{location}.
+    #edu
+      h2 Interests
+      hr
+      ul
+        li
+          .skill Graphics/OpenGl
+          .skill Perf. Profiling
+          .skill Compilers
 
   #project
     include recent_experience.pug
 
+  br
+  hr
+  br
   .footer !{contactInfo}
-  p.
-    If you are interested in learning more about me please contact
-    me by phone or email at your earliest convenience.

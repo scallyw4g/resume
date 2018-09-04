@@ -3,6 +3,17 @@ body {
   font-size: 0.8em;
 }
 
+* {
+  font-family: "Source Serif Pro";
+}
+
+h1, h2, h3,
+#project span.lang,
+.skill
+{
+  font-family: "Inconsolata for Powerline";
+}
+
 #letter {
   float: left;
 }
@@ -20,7 +31,7 @@ body {
 }
 
 #cert ul li,
-#edu ul li{
+#edu ul li {
   width: 33%;
   float: left;
 }
@@ -37,6 +48,7 @@ body {
 }
 
 #project {
+  width: 100%;
   padding-top: 20px;
 }
 
@@ -44,8 +56,18 @@ li {
   margin: 10px 0;
 }
 
+#project h3.project-title {
+  display: inline-block;
+  font-family: "Inconsolata for Powerline";
+}
+
+#project span.lang {
+  float: right;
+  font-family: "Inconsolata for Powerline";
+}
+
+
 #project > ul > li {
-  font-family: "Source Serif Pro";
   font-size: 14px;
   padding-top: 8px;
 }
@@ -58,17 +80,23 @@ ul {
 
 p {
   padding: 0 10px;
-  font-family: "Source Serif Pro";
 }
 
-.header h1,
-.footer h1 {
+h1.header,
+.header {
   display: inline-block;
-  padding: 10px 0;
+  padding: 1em 0.5em;
+}
+
+.contact-info {
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 0;
+  white-space: pre;
 }
 
 h2, h3, h4 {
-  padding: 0 0 0 5px;
+  padding: 5px 0 0 5px;
 }
 
 h1 {

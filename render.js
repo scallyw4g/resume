@@ -9,6 +9,9 @@ var pug = require('pug')
 
 var commandLineArgs = process.argv.slice(2);
 
+var DefaultTemplate = "resume.pug";
+var DefaultLocation = "Victoria";
+
 if ( commandLineArgs.indexOf("--sample") !== -1 ) {
 
   let args = {
@@ -16,7 +19,7 @@ if ( commandLineArgs.indexOf("--sample") !== -1 ) {
     position: "SAMPLE",
     application_url: "http://www.someGreatCompany.com",
     company_name: "Sample",
-    template: "resume.jade"
+    template: DefaultTemplate
   }
 
   render(args);
@@ -79,7 +82,7 @@ function render (args) {
   html = pug.renderFile(args.template, args);
   fs.writeFile(`resume.html`,
                html,
-               () => console.log("Writing resume.html\n") );
+               () => console.log(`Writing ${process.cwd()}/resume.html\n`) );
 
   // Convert HTML to PDF and write it to the FS
   pdf.create(html).toFile( `${filePath}/Jesse_Hughes_Resume.pdf`, (err, res) => {
@@ -103,9 +106,9 @@ function readArgsFromStdIn () {
 
   args.application_url = readline.question("What url is the position advertised at? ");
 
-  args.location = readline.question("Where is this position located? ( Default: Victoria ) ");
+  args.location = readline.question(`Where is this position located? ( Default: ${DefaultLocation} ) `);
 
-  args.template = readline.question("What template should I render? ( Default: resume.jade ) ");
+  args.template = readline.question(`What template should I render? ( Default: ${DefaultTemplate} ) `);
 
   setDefaultValues(args);
 
@@ -119,11 +122,11 @@ function readArgsFromStdIn () {
  */
 function setDefaultValues(args) {
   if (args.template.length === 0 ) {
-    args.template = "resume.jade";
+    args.template = DefaultTemplate;
   }
 
   if (args.location.length === 0 ) {
-    args.location = "Victoria";
+    args.location = DefaultLocation;
   }
 }
 
