@@ -1,4 +1,4 @@
-#! /bin/node
+#! /usr/bin/env node
 
 var pug = require('pug')
   , fs = require('fs')
