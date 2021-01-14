@@ -1,0 +1,29 @@
+//- To compile on save add the following snippet to your vimrc
+//- autocmd BufWritePost resume.jade ! node render.js
+
+link(href='/usr/share/fonts/adobe-source-serif-pro/SourceSerifPro-Light.otf' rel='stylesheet' type='text/css')
+link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet' type='text/css')
+
+style
+  include resume.css
+
+- lcLocation = location.toLowerCase()
+
+if lcLocation === 'remote'
+  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    Victoria BC    github.com/jjbandit</span> </div>"
+else
+  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    github.com/jjbandit    http://bare.software</span> </div>"
+
+body
+
+  h1.header Jesse Hughes
+  .header !{contactInfo}
+
+  div
+    p
+      This is text!!
+
+  br
+  hr
+  br
+  .footer !{contactInfo}
