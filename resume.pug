@@ -1,65 +1,50 @@
 //- To compile on save add the following snippet to your vimrc
 //- autocmd BufWritePost resume.jade ! node render.js
 
-link(href='/usr/share/fonts/adobe-source-serif-pro/SourceSerifPro-Light.otf' rel='stylesheet' type='text/css')
+link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css")
 link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet' type='text/css')
 
 style
   include resume.css
 
-- lcLocation = location.toLowerCase()
-
-if lcLocation === 'remote'
-  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    Victoria BC    github.com/jjbandit</span> </div>"
-else
-  - var contactInfo = "<div class=contact-info> <span>jesse.hughes.it@gmail.com    github.com/jjbandit    http://bare.software</span> </div>"
+- var contactInfo = "jesse.hughes.it@gmail.com  _  github.com/jjbandit"
 
 body
 
-  h1.header Jesse Hughes
-  .header !{contactInfo}
+  .header
+    h1.name Jesse Hughes
+    .contact-info !{contactInfo}
 
-  div
-    #cert
-      h2 Skills
-      hr
-      ul
-        li
-          h3 7+ Years
-          .skill git
-          .skill Bash
-          .skill Javascript
-          .skill Linux
+  #cert
+    ul
+      li
+        h3 Expert
+        .skill git
+        .skill Bash
+        .skill Linux
 
-        li
-          h3 5+ Years
-          .skill AWS
-          .skill Apache/Nginx
-          .skill Node/React
-          .skill PHP
-          .skill SQL
+      li
+        h3 Proficient
+        .skill C   C++
+        .skill TS  JS  React
+        .skill Ruby   Rails
+        .skill OpenGL WebGL
 
-        li
-          h3 3+ Years
-          .skill C/C++
-          .skill OpenGL
-          .skill SIMD
-          .skill Angular2
-          .skill Ruby on Rails
+      li
+        h3 Good
+        .skill SIMD
+        .skill SQL
+        .skill Webservers
 
-    #edu
-      h2 Interests
-      hr
-      ul
-        li
-          .skill Graphics/OpenGl
-          .skill Perf. Profiling
-          .skill Compilers
+      li
+        h3 Interested In
+        .skill Profiling Tooling
+        .skill Compilers
+        .skill Computer Vision
+        .skill Computational Geometry
+
 
   #project
     include recent_experience.pug
 
-  br
-  hr
-  br
   .footer !{contactInfo}

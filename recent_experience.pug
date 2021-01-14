@@ -1,42 +1,84 @@
-h2 Recent Experience
-hr
+-
+  var jobs = [
+    { title: 'Bonsai',
+      badge: 'OSS',
+      date: '2015 to Present',
+      lang: 'OpenGL  C  C++',
+      bullets: [
+       '3D game engine: https://github.com/jjbandit/bonsai',
+       'Renderer, Debug Profiler, Entity System, Physics',
+       'From scratch; no third party libraries',
+      ]
+    },
+    { title: 'Evolution Ventures',
+      badge: 'Remote',
+      date: '2019 to Present',
+      lang: 'WebGL  TS  React',
+      bullets: [
+        'Build and maintain WebGL based Architecture Visualization tools'
+      ]
+    },
+    { title: 'RCA Web',
+      badge: 'Remote',
+      date: '2019',
+      lang: 'Rails  JS',
+      bullets: [
+        'Twilio based alerting system',
+        'Maintenance - William Grant & Sons internal tooling',
+      ]
+    },
+    { title: 'Project6 Design',
+      badge: 'Remote',
+      date: '2017-2019',
+      lang: 'JS  Wordpress',
+      bullets: [
+        'CrossFit Games - https://games.crossfit.com',
+        'Implement & maintain various client sites',
+
+      ]
+    },
+    { title: 'Fresche',
+      badge: 'Onsite',
+      date: '2015-2016',
+      lang: 'C++  JS  PHP',
+      bullets: [
+        'Rebuilt product integration portal - C++ backend, Angular2 frontend',
+        'Refactored 300Kloc C++ Windows IDE to support Unicode',
+        'Increased test coverage by 4x',
+      ]
+    },
+    { title: 'Yipida',
+      badge: 'Onsite',
+      date: '2014',
+      lang: 'JS  PHP',
+      bullets: [
+        'Rebuilt payment processing with Stripe',
+        'Routine mantenance',
+      ]
+    },
+    { title: 'Consulting',
+      badge: '',
+      date: '2012 to Present',
+      lang: 'Rails  JS  TS  PHP',
+      bullets: [
+        'McAfee MPOWER site : https://mcafeempower.com/',
+        'Twilio marketing tools',
+        'Several Ruby on Rails eCommerce apps',
+        'Community Carbon Credit trading platform',
+      ]
+    },
+  ]
+
 ul
-  li
-    h3.project-title Project6 Design Inc - Remote - Aug 2017 to Present
-    span.lang PHP - Javascript
+  each job in jobs
+    li
+    .flex.space-between
+      div
+        h3.project-title= job.title
+        .date= job.date
+        .badge= job.badge
+      div
+        .lang= job.lang
     ul
-      li Frontend work on CrossFit Games - http://games.crossfit.com
-      li Design and Implement various other client sites
-
-  li
-    h3.project-title Bonsai - Open Source - 2015 to Present
-    span.lang C - C++
-    ul
-      li 3D game engine - no libraries
-      li Renderer, Debug Profiler, Entity System, Physics .. etc.
-
-  li
-    h3.project-title Fresche - Semi-Remote - November 2015 to July 2017
-    span.lang C++ - PHP - Javascript
-    ul
-      li Rebuilt product integration portal - C++ backend, Angular2 frontend
-      li Refactored 300Kloc C++ Windows IDE to support Unicode
-      li Increased test coverage by 4x
-
-  li
-    h3.project-title Yipida - May to November 2015
-    span.lang PHP - Javascript
-    ul
-      li Full-Stack Developer && Dev Ops
-      li Rebuilt Payment Processing with Stripe
-      li Built a custom PHP templating engine
-
-  li
-    h3.project-title Consulting - 2012 to Present
-    span.lang PHP - Rails - Javascript
-    ul
-      li Twilio MMS/Voice subscription marketing service
-      li Several Ruby on Rails eCommerce apps using Spree
-      li Timecard Generator app for Victoria Capitol Regional District
-      li Swim Lesson roster generator for Victoria Capitol Regional District
-
+      each bullet in job.bullets
+        li= bullet

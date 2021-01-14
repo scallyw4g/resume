@@ -1,117 +1,153 @@
 body {
   max-width: 960px;
-  font-size: 0.8em;
 }
 
 * {
-  font-family: "Source Serif Pro";
-}
-
-h1, h2, h3,
-#project span.lang,
-.skill
-{
-  font-family: "Inconsolata for Powerline";
-}
-
-#letter {
-  float: left;
-}
-
-#cert, #edu {
-  padding-top: 10px;
-  float: left;
+  font-family: "Open Sans";
+  font-size: 10px;
+  white-space: pre;
 }
 
 #cert {
-  width: 75%;
-}
-#edu {
-  width: 25%;
+  width: 100%;
 }
 
-#cert ul li,
-#edu ul li {
-  width: 33%;
-  float: left;
+#cert ul {
+  display: flex;
+  display: -webkit-flex;
+}
+
+#cert ul li {
+  width: 25%;
 }
 
 .skill {
   white-space: pre;
-  padding: 2px 10px;
-}
-
-#letter,
-#cert,
-#project {
-  display: inline-block;
+  padding: 2px 0px;
 }
 
 #project {
   width: 100%;
-  padding-top: 20px;
 }
 
 li {
-  margin: 10px 0;
+  margin: 5px 0;
+}
+
+.flex {
+  display: flex;
+  display: -webkit-flex;
+
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+}
+
+.space-between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+
+.border-bottom {
+  border-bottom: 1px solid black;
+}
+
+
+#project div.job {
+  display: flex;
+  display: -webkit-flex;
+
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+
+  font-size: 8px;
+
+  width: 100%;
+}
+
+#project div.job span {
+  padding-right: 10px;
+}
+
+.date,
+.badge,
+.lang {
+  display: inline-block;
+}
+
+#project .date {
+  min-width: 100px;
+  padding: 0 10px;
+}
+
+#project .lang {
+  padding: 0 10px;
+}
+
+#project .badge {
+  padding-left: 10px;
 }
 
 #project h3.project-title {
   display: inline-block;
-  font-family: "Inconsolata for Powerline";
-}
-
-#project span.lang {
-  float: right;
-  font-family: "Inconsolata for Powerline";
-}
-
-
-#project > ul > li {
-  font-size: 14px;
-  padding-top: 8px;
+  min-width: 140px;
+  margin-top: 20px;
 }
 
 ul {
   list-style: none;
   padding: 0 0 0 10px;
-  margin: 10px 0 0 0 ;
+  margin: 0;
 }
 
 p {
   padding: 0 10px;
 }
 
-h1.header,
 .header {
-  display: inline-block;
-  padding: 1em 0.5em;
+  padding-bottom: 10px;
+
+  display: flex;
+  display: -webkit-flex;
+
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+
+  align-items: center;
+  -webkit-align-items: center
 }
 
 .contact-info {
-  font-size: 16px;
-  text-align: center;
-  padding: 5px 0;
+  position: relative;
+  right: 0;
   white-space: pre;
-}
-
-h2, h3, h4 {
-  padding: 5px 0 0 5px;
 }
 
 h1 {
   margin: 0;
-}
-h2 {
-  margin: 0;
-}
-h3 {
-  margin: 0;
-}
-h4 {
-  margin: 0;
+  font-size: 2.0rem;
+  padding-left: 12px;
 }
 
-hr {
-  margin: 5px 0;
+h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
 }
