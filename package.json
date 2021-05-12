@@ -1,8 +1,9 @@
 {
   "dependencies": {
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "jade": "^1.11.0",
     "moment": "^2.22.2",
+    "pug": "^3.0.2",
     "readline-sync": "^1.4.9"
   }
 }

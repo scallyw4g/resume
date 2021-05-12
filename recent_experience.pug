@@ -1,56 +1,74 @@
 -
   var jobs = [
-    { title: 'Optic Pwr',
+    { title: 'Solutions Architect',
+      company: 'Optic Power',
       badge: 'Remote',
-      date: '2020 - Current',
-      lang: 'C  C++  ASM',
+      date: '2020 - Present',
+      lang: 'TS    JS   Elixir   C   C++   ASM',
       bullets: [
-        'Reverse engineer Valves Source2 engine and read client memory at runtime',
-        'CS:GO  Valorant  League of Legends',
+        'Own discovery, architecture and kickoff phases of client projects',
+        'Manage multiple in-flight clients, projects and teams',
+        'Reverse engineer Valves Source2 engine -- "Crazy game hacks" is in the job description',
       ]
     },
-    { title: 'Bonsai',
+    { title: 'Senior Engineer',
+      company: 'KeyDB',
+      badge: 'Remote',
+      date: '2021',
+      lang: 'C   C++   Multithreading',
+      bullets: [
+        'Development work; multithreaded Redis fork',
+        'Short, performance-oriented contract',
+      ]
+    },
+    { title: 'Graphics & Game Engine Programming',
+      company: 'Bonsai -- 3D Game Engine',
       badge: 'OSS',
-      date: '2015 to Present',
-      lang: 'OpenGL  C  C++',
+      date: '2015 - Present',
+      lang: 'OpenGL   C   C++',
       bullets: [
-       '3D game engine: https://github.com/jjbandit/bonsai',
-       'Renderer, Debug Profiler, Entity System, Physics',
-       'From scratch; no third party libraries',
+       'github.com/jjbandit/bonsai',
+       'Renderer, Profiler, Entity System, Physics',
+       'From scratch -- no third party libraries',
       ]
     },
-    { title: 'Evolution Ventures',
+    { title: 'Senior Graphics Engineer',
+      company: 'Evolution Ventures',
       badge: 'Remote',
-      date: '2019 to 2021',
-      lang: 'WebGL  TS  React',
+      date: '2019 - 2021',
+      lang: 'WebGL   TS   React',
       bullets: [
-        'Build and maintain WebGL based Architecture Visualization tools'
+        'Build, extend, maintain WebGL-based architecture visualization tools',
+        'High-level technical direction for 3D products',
       ]
     },
-    { title: 'RCA Web',
+    { title: 'Fullstack Developer',
+      company: 'RCA Web',
       badge: 'Remote',
       date: '2019',
-      lang: 'Rails  JS',
+      lang: 'Rails   JS',
       bullets: [
         'Twilio based alerting system',
         'Maintenance - William Grant & Sons internal tooling',
       ]
     },
-    { title: 'Project6 Design',
+    { title: 'Fullstack Developer',
+      company: 'Project6 Design',
       badge: 'Remote',
-      date: '2017-2019',
-      lang: 'JS  PHP',
+      date: '2017 - 2019',
+      lang: 'JS   PHP',
       bullets: [
-        'CrossFit Games - https://games.crossfit.com',
-        'McAfee MPOWER - https://mcafeempower.com/',
+        'CrossFit Games -- games.crossfit.com',
+        'McAfee MPOWER -- mcafeempower.com',
         'Implement & maintain various client sites',
 
       ]
     },
-    { title: 'Fresche',
+    { title: 'Win32 Engineer',
+      company: 'Fresche Solutions',
       badge: 'Onsite',
-      date: '2015-2016',
-      lang: 'C++  JS  PHP',
+      date: '2014 - 2016',
+      lang: 'C++   JS   PHP',
       bullets: [
         'Rebuilt product integration portal - C++ backend, Angular2 frontend',
         'Refactored 300Kloc C++ Windows IDE to support Unicode',
@@ -59,16 +77,24 @@
     },
   ]
 
-ul
+ul.flex.column
   each job in jobs
     li
-    .flex.space-between
-      div
-        h3.project-title= job.title
-        .date= job.date
-        .badge= job.badge
-      div
-        .lang= job.lang
-    ul
-      each bullet in job.bullets
-        li= bullet
+      li.flex.space-between.align-items-end
+        h3= job.company
+        h4= job.title
+
+    div.flex.space-between
+      ul.pl-5
+        each bullet in job.bullets
+          li= bullet
+
+      ul.flex.column.align-items-end
+        li= job.date
+        li= job.lang
+        li= job.badge
+
+
+
+
+

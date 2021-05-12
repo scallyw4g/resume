@@ -7,46 +7,50 @@ link(href='/home/scallywag/.fonts/Inconsolata for Powerline.otf' rel='stylesheet
 style
   include resume.css
 
-- var contactInfo = "jesse.hughes.it@gmail.com  _  github.com/jjbandit"
+- var contactInfo = "jesse.hughes.it@gmail.com        github.com/jjbandit"
 
 body
 
   .header
-    h1.name Jesse Hughes
+    h1.name Jesse J. Hughes
     .contact-info !{contactInfo}
 
-  #cert
+  #cert.border-bottom
     ul
       li
-        h3 Expert
-        .skill Git
-        .skill Bash
-        .skill Linux
+        h3 🧙✨
+      li Vim
+      li Bash    Zsh
+      li Git
+      li Linux
 
+    ul
       li
-        h3 Proficient
-        .skill C   C++
-        .skill TS  JS  React
-        .skill Ruby   Rails
-        .skill OpenGL WebGL
+        h3 💪
+      li C    C++
+      li TS    JS    React
+      li Ruby    Rails
+      li OpenGL    WebGL
 
+    ul
       li
-        h3 Good
-        .skill SIMD
-        .skill Multithreading
-        .skill SQL
-        .skill Webservers
+        h3 👍
+      li SIMD
+      li Multithreading
+      li SQL
+      li Webservers
 
+    ul.right-justify
       li
-        h3 Interested In
-        .skill Performance Profiling
-        .skill Compilers
-        .skill Computer Vision
-        .skill Computational Geometry
-        .skill ML
+        h3 Interested
+      li Performance Profiling
+      li Compilers
+      li Computer Vision
+      li Computational Geometry
 
+  .flex.pad-10.border-bottom.space-evenly
+    div 12 Years Professional Experience
+    div Autodidactic
 
   #project
     include recent_experience.pug
-
-  .footer !{contactInfo}

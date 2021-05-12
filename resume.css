@@ -1,5 +1,6 @@
 body {
   max-width: 960px;
+  padding: 10px;
 }
 
 * {
@@ -9,35 +10,34 @@ body {
 }
 
 #cert {
-  width: 100%;
-}
-
-#cert ul {
   display: flex;
-  display: -webkit-flex;
-}
-
-#cert ul li {
-  width: 25%;
+  justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 .skill {
   white-space: pre;
-  padding: 2px 0px;
 }
 
 #project {
   width: 100%;
+  padding: 0;
 }
 
 li {
-  margin: 5px 0;
+  padding: 3px 0;
 }
 
 .flex {
   display: flex;
   display: -webkit-flex;
+}
 
+.column {
+  flex-direction: column;
+}
+
+.align-items-end {
   align-items: flex-end;
   -webkit-align-items: flex-end;
 }
@@ -46,6 +46,12 @@ li {
   justify-content: space-between;
   -webkit-justify-content: space-between;
 }
+
+.space-evenly {
+  justify-content: space-evenly;
+  -webkit-justify-content: space-evenly;
+}
+
 
 .border-bottom {
   border-bottom: 1px solid black;
@@ -67,38 +73,19 @@ li {
   width: 100%;
 }
 
-#project div.job span {
-  padding-right: 10px;
-}
-
 .date,
-.badge,
-.lang {
+.badge {
   display: inline-block;
-}
-
-#project .date {
-  min-width: 100px;
-  padding: 0 10px;
-}
-
-#project .lang {
-  padding: 0 10px;
-}
-
-#project .badge {
-  padding-left: 10px;
 }
 
 #project h3.project-title {
   display: inline-block;
-  min-width: 140px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 ul {
   list-style: none;
-  padding: 0 0 0 10px;
+  padding: 0;
   margin: 0;
 }
 
@@ -121,14 +108,18 @@ p {
 
 .contact-info {
   position: relative;
-  right: 0;
   white-space: pre;
+}
+
+.right-justify {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 h1 {
   margin: 0;
   font-size: 2.0rem;
-  padding-left: 12px;
 }
 
 h2 {
@@ -150,4 +141,47 @@ h4 {
   position: absolute;
   bottom: 25px;
   right: 10px;
+}
+
+.w-75 {
+  width: 75%;
+}
+.w-25 {
+  width: 25%;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.pr-15 {
+  padding-right: 15px;
+}
+
+.pt-18 {
+  padding-top: 18px;
+}
+
+.pad-0 {
+  padding: 0;
+}
+
+.pad-10 {
+  padding: 10px;
+}
+
+.pad-15 {
+  padding: 15px;
+}
+
+.pad-15-0 {
+  padding: 15px 0px;
+}
+
+.pad-0-15 {
+  padding: 0px 15px;
+}
+
+.pad-0-10 {
+  padding: 0px 10px;
 }
