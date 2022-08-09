@@ -15,12 +15,12 @@ body
     h1.name Jesse J. Hughes
     .contact-info !{contactInfo}
 
-  #cert.border-bottom
+  #cert
     ul
       li
         h3 🧙✨
       li Vim
-      li Bash    Zsh
+      li Shell
       li Git
       li Linux
 
@@ -35,22 +35,26 @@ body
     ul
       li
         h3 👍
-      li SIMD
-      li Multithreading
-      li SQL
-      li Webservers
+      li SIMD  Multithreading
+      li SQL   Webservers
+      li Windows
 
     ul.right-justify
       li
-        h3 Interested
-      li Performance Profiling
+        h3 Interests
       li Compilers
-      li Computer Vision
+      li Tooling
+      li Performance
       li Computational Geometry
 
-  .flex.pad-10.border-bottom.space-evenly
-    div 12 Years Professional Experience
-    div Autodidactic
+  .flex.pad-10.marg-10-0.border-top.border-bottom.space-evenly
+    div OSS Projects
+
+  #project
+    include oss_projects.pug
+
+  .flex.pad-10.marg-10-0.border-top.border-bottom.space-evenly
+    div 12 Years Experience   7 Years Remote
 
   #project
     include recent_experience.pug
