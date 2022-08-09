@@ -1,0 +1,57 @@
+-
+  var jobs = [
+    { title: 'bash/POSIX Compatible Shell and Language',
+      company: 'Oil Shell',
+      badge: '',
+      date: '2022 - Present',
+      lang: 'Python  Shell  C++',
+      bullets: [
+       'github.com/oil/oil',
+       'Upgrade path from bash to a better system scripting language and runtime',
+       'Writing a Python runtime and a mark/sweep garbage collector',
+      ]
+    },
+    { title: 'Graphics & Game Engine',
+      company: 'Bonsai :: 3D Game Engine',
+      badge: '',
+      date: '2015 - Present',
+      lang: 'OpenGL   C   C++',
+      bullets: [
+       'github.com/jjbandit/bonsai',
+       'Renderer, Profiler, Entity System, Physics',
+       'From scratch -- no third party libraries',
+      ]
+    },
+    { title: 'Compiler Engineering',
+      company: 'MC :: Metaprogramming C Compiler',
+      badge: '',
+      date: '2020 - Present',
+      lang: 'C   C++',
+      bullets: [
+       'github.com/jjbandit/mc',
+       'Fast and programmable replacement for C++ template metaprogramming',
+      ]
+    },
+  ]
+
+ul.flex.column
+  each job in jobs
+    li
+      .flex.space-between.align-items-end
+        h3= job.company
+        h4= job.title
+
+      div.flex.space-between
+        ul.pl-5
+          each bullet in job.bullets
+            li= bullet
+
+        ul.flex.column.align-items-end
+          li= job.date
+          li= job.lang
+          li= job.badge
+
+
+
+
+

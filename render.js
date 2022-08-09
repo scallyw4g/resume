@@ -80,9 +80,9 @@ function render (args) {
 
   // Render the pug template as html
   html = pug.renderFile(args.template, args);
-  fs.writeFile(`resume.html`,
+  fs.writeFile(`index.html`,
                html,
-               () => console.log(`Writing ${process.cwd()}/resume.html\n`) );
+               () => console.log(`Writing ${process.cwd()}/index.html\n`) );
 
   // Convert HTML to PDF and write it to the FS
   pdf.create(html).toFile( `${filePath}/Jesse_Hughes_Resume.pdf`, (err, res) => {
