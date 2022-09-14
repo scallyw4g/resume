@@ -84,13 +84,13 @@ function render (args) {
                html,
                () => console.log(`Writing ${process.cwd()}/index.html\n`) );
 
-  // Convert HTML to PDF and write it to the FS
-  pdf.create(html).toFile( `${filePath}/Jesse_Hughes_Resume.pdf`, (err, res) => {
-    fs.writeFile(`${filePath}/args.json`,
-                 JSON.stringify(args, null, 2),
-                 () => console.log(`PDF written to ${res.filename}\n`) )
+  // // Convert HTML to PDF and write it to the FS
+  // pdf.create(html).toFile( `${filePath}/Jesse_Hughes_Resume.pdf`, (err, res) => {
+  //   fs.writeFile(`${filePath}/args.json`,
+  //                JSON.stringify(args, null, 2),
+  //                () => console.log(`PDF written to ${res.filename}\n`) )
 
-  });
+  // });
 }
 
 /*
